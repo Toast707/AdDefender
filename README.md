@@ -1,4 +1,4 @@
-# AdDefender *(German)*
+# AdDefender
 
 [AdDefender on Github](https://github.com/TRoskop/AdDefender "AdDefender on Github")
 

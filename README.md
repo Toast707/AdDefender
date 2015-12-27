@@ -3,7 +3,7 @@
 [AdDefender on Github](https://github.com/TRoskop/AdDefender "AdDefender on Github")
 
 
-### Willkommen zum AdDefender!
+### Welcome to: AdDefender!
 **AdDefender** is a **free and open-source PHP- AND/OR Javascript-Framework to Defend Ad-Blockers**!
 
 

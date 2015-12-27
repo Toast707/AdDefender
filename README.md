@@ -13,8 +13,8 @@ If you want to see how easy it is to integrate the necessary code to your's, ple
 see the Example files 'app-fullbanner.php' and 'app-smallbanner.php'.
 
 Here you will find some examples which work with the most recent version of **uBlock Orgin** and **AdBlock Plus**. It even works with extensions like **NoScript** or with a Browser where the user disabled Javascript:
-[*] http://trserver1.site40.net/projects/AdDefender/app-smallbanner.php.html
-[*] http://trserver1.site40.net/projects/AdDefender/app-fullbanner.php.html
+> http://trserver1.site40.net/projects/AdDefender/app-smallbanner.php.html
+> http://trserver1.site40.net/projects/AdDefender/app-fullbanner.php.html
 
 ## Can I use AdDefender without PHP? ##
 Yes, you can!

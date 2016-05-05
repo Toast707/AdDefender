@@ -13,7 +13,8 @@
 define("ADDefenderBannerAnimationDelayTime", 1); /* Must be > 1  */
 define("ADDefenderBannerBackgroundColor", "#C83759"); /* */
 define("ADDefenderBannerTextColor", "#FFFFFF"); /* */
-
+define("ADDefenderRandomNamePrefix", "ww"); /* Change this to prevent users from using reg-ex'es to find the class-names, make sure non of your normal css-ids and classnames start with this string!! */
+define("ADDefenderValidationAPIName", "_AdDefenderValid()"); // Only change tis name if you also change "ad.php" and/or "acfp.js"
 
 /**********
 */
@@ -28,8 +29,8 @@ abstract class _AdDefenderInfoType
 /**********
 */
 function _AdDefenderInitCore() {
-  $GLOBALS["AADefenderTokenID"] = "z" . __ADDUtilCreateRandomName();
-  $GLOBALS["AADefenderTokenStyle"] = "q" . __ADDUtilCreateRandomName();
+  $GLOBALS["AADefenderTokenID"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
+  $GLOBALS["AADefenderTokenStyle"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
 }
 
 
@@ -164,7 +165,7 @@ function _AdDefenderCreateScript($adfilesrc) {
 	echo "<script type=\"text/javascript\">
     (function(){
 				try {
-				  if(_AdDefenderValid()) {
+				  if(" . ADDefenderValidationAPIName ." ) {
           	var d = document.getElementById(\"" . $GLOBALS["AADefenderTokenID"] . "\");
           	if(d != null && d.parentElement != null) d.parentElement.removeChild(d);
         	}
@@ -197,7 +198,7 @@ function __AdDefenderStart($bannertype, $includereversestyle) {
 function __AdDefenderEnd($adfilename) {
 	_AdDefenderWriteBannerEndTag();
 	_AdDefenderCreateScript($adfilename);
-	/* Verweis auf dieses Projekt einfügen */
+	/* Watermark, only remove when you've asked Thomas Roskop for permission!!! */
 	echo "<!-- using Roskop AdDefender  -->";
 }
 
@@ -205,14 +206,14 @@ function __AdDefenderEnd($adfilename) {
 */
 function __ADDUtilCreateRandomName() {
     $length = 10;
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-';
+    $characters = '-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
     for ($i = 0; $i < $length; $i++) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
-    return "o" . $randomString;
-    /* Gemäß CSS-Richtlinie ist es nicht erlaubt, dass der String mit einer Zahl oder - beginnt. */
+    $startChar = $characters[rand(10, $charactersLength - 1)]; // We pick a char from our list which is neither a number nor '-', because those names are not allowed to start with something other than a char
+    return $startChar . $randomString;
 }
 
  ?>

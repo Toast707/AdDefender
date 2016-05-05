@@ -4,7 +4,7 @@
 
 _________________________________
 
-**Copyright (c) 2015-2016 Thomas Roskop**
+**Copyright (c) 2016 Thomas Roskop**
 
 Made with ♥ in Germany
 

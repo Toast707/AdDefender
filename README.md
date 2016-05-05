@@ -4,23 +4,33 @@
 
 
 ### Welcome to: AdDefender!
-**AdDefender** is a **free and open-source PHP- AND/OR Javascript-Framework to Defend Ad-Blockers**!
+**AdDefender** is a **free and open-source Framework to defend Ad-Blockers**!
 
+Millions of people have ad blockers installed.
+Depending on your target customer group up to 50% use ad blockers.
+
+You serve them your high-quality content whereas they do not see your ads!
+This means: No more revenue for you and your business.
+
+AdDefender tries to prevent the user from viewing you website with an ad blocker.
+And you decide how it works: 
+* You can show you visitors a message if they have an ad blocker or
+* You can show a full-size banner, covering you website.
+
+It's you decision. And AdDefender tries to help you!
 
 
 ## Examples / How-To-Use ##
-If you want to see how easy it is to integrate the necessary code to your's, please 
-see the Example files 'app-fullbanner.php' and 'app-smallbanner.php'.
+For how to use it, please see the example-files "app-fullbanner.php" and "app-smallbanner.php".
+They should explain how AdDefender works...
 
-Here you will find some examples which work with the most recent version of **uBlock Orgin** and **AdBlock Plus**. It even works with extensions like **NoScript** or with a Browser where the user disabled Javascript:
-> http://trserver1.site40.net/projects/AdDefender/app-smallbanner.php.html  
-> http://trserver1.site40.net/projects/AdDefender/app-fullbanner.php.html
+To test it, you have to access these files using a webserver supporting php, like Apache or XAMPP.
+
+If you need help, please contanct me!
 
 ## Can I use AdDefender without PHP? ##
 Yes, you can!
-Please see the 'app-fullbanner.php.html' and 'app-smallbanner.php.html' files to see how a 
-html-only solution would look like.
-It is easy and almost as safe as the php version.
+For more information to this, please contact the author.
 
 But we suggest you to use the php version if possible, because it provides extended features.
 
@@ -33,7 +43,7 @@ Please read also the "License.md"-file.
 
 _________________________________
 
-**Copyright (c) 2015-2016 Thomas Roskop**
+**Copyright (c) 2016 Thomas Roskop**
 
 
 Made with ♥ in Germany

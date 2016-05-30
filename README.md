@@ -35,7 +35,8 @@ You'll lose your revenue.
 
 ## The Solution ##
 AdDefender has several techniques to deal with ad blockers. You can prevent the user from viewing your site and force him to deactivate the blocker. Or you can show him banners and notifications to make him aware of this problem.
-=======
+
+
 ## Examples / How-To-Use ##
 For how to use it, please see the example-files "app-fullbanner.php" and "app-smallbanner.php".
 They should explain how AdDefender works...

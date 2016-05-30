@@ -3,11 +3,9 @@
 [AdDefender on Github](https://github.com/TRoskop/AdDefender "AdDefender on Github")
 
 
-<<<<<<< HEAD
 
-### Welcome to AdDefender!
-=======
-### Welcome to: AdDefender!
+
+### Welcome to: AdDefender! ###
 **AdDefender** is a **free and open-source Framework to defend Ad-Blockers**!
 
 Millions of people have ad blockers installed.
@@ -22,7 +20,6 @@ And you decide how it works:
 * You can show a full-size banner, covering you website.
 
 It's you decision. And AdDefender tries to help you!
->>>>>>> 285f58251fc831172388591d17edd79cb616a2f4
 
 * Inform and/or block ad blockers
 * Get your revenue back
@@ -30,14 +27,13 @@ It's you decision. And AdDefender tries to help you!
 * Free and open source
 * Secure
 
-<<<<<<< HEAD
 
-## The Problem
+## The Problem ##
 Depending on your target visitor group, up to 50% use an ad blocker. 
 This means, ads - the most common and effective way to earn money - are no longer displayed.
 You'll lose your revenue.
 
-## The Solution
+## The Solution ##
 AdDefender has several techniques to deal with ad blockers. You can prevent the user from viewing your site and force him to deactivate the blocker. Or you can show him banners and notifications to make him aware of this problem.
 =======
 ## Examples / How-To-Use ##
@@ -51,7 +47,6 @@ If you need help, please contanct me!
 ## Can I use AdDefender without PHP? ##
 Yes, you can!
 For more information to this, please contact the author.
->>>>>>> 285f58251fc831172388591d17edd79cb616a2f4
 
 * AdDefend is secure and cannot be bypassed. Even deactivated Javascript or modified blocking lists cannot stop AdDefender.
 * You can integrate it into your homepage within just a few minutes. 

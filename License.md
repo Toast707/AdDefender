@@ -1,10 +1,10 @@
 # AdDefender // License
 
-[AdDefender on Github](https://github.com/TRoskop/AdDefender "AdDefender on Github")
+[AdDefender on Github](https://github.com/TRoskop/AdDefender "Roskop AdDefender on Github")
 
 _________________________________
 
-**Copyright (c) 2015-2016 Thomas Roskop**
+**Copyright (c) 2016 Thomas Roskop**
 
 Made with ♥ in Germany
 

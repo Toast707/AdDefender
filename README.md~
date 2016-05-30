@@ -28,7 +28,7 @@ AdDefender has several techniques to deal with ad blockers. You can prevent the 
 
 ## How to integrate
 Please see the README.md-files in "/src" to see how to use API for your language.
-Currently there is just a PHP-API, but AdDefender can be ported very fast to other languages.
+Currently there is juzst a PHP-API, but AdDefender can be ported very fast to other languages.
 
 ## Licensing etc. 
 You can use AdDefender for any purpose (even for commercial) without any fees etc.

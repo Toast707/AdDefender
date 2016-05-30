@@ -3,14 +3,18 @@
 [AdDefender on Github](https://github.com/TRoskop/AdDefender "AdDefender on Github")
 
 
+### Current Version
+Version 2.0
+
 ### Builds
 
 **1 | 27. Dec. 2015**:
-+ Initial Launch
++ Launch v2
+
 
 _________________________________
 
-**Copyright (c) 2015-2016 Thomas Roskop**
+**Copyright (c) 2016 Thomas Roskop**
 
 
 Made with ♥ in Germany

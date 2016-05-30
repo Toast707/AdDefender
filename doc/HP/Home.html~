@@ -1,0 +1,130 @@
+<DOCTYPE html>
+<html>
+	<head>
+		<title>Roskop AdDefender</title>
+		<link rel="shortcut icon" href="Logo.png" />
+		<style>
+   		.page-container {
+				position: absolute;
+				width: 100%;
+				top: 0px;
+				left:0px;
+				overflow-y: auto;
+   		}
+   		
+   		.header-banner {
+   			background-color: #DD0048;
+   			height: 380px;
+   		}
+   		
+   		.header-image {
+   			background-image: url(Logo.png);
+   			height: 200px;
+   			width: 200px;
+   			background-size: 128px;
+   			background-position: center center;
+            background-color: #FFFFFF;
+            border-radius: 100px;
+            background-repeat: no-repeat;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            margin-top: 250px;
+   		}
+   		
+   		.header-titletext {
+   			font-family: sans-serif;
+   			font-weight: 200;
+   			font-size: 50px;
+   			word-wrap: normal;
+   			color: #FFFFFF;
+   			position: absolute;
+   			text-align: center;
+   			width: 100%;
+   			margin-top: 80px;
+   		}
+   		
+   		.content {
+   			margin: 50px;
+   			font-family: sans-serif;
+   			margin-left: 15%;
+   			margin-right: 15%;
+   		}
+   		
+   		.content-header1 {
+   			font-size: 20px;
+   			margin-top: 15px;
+   		}
+   		
+   		.content-text1 {
+   			font-size: 14px;
+   		}
+   		
+   		.content-text1 li {
+   			font-size: 14px;
+   		}
+   		
+   		.download-more {
+   			color: #DD0048;
+   		}
+		</style>
+
+	</head>
+	<body>
+      <div class="page-container">
+
+      	<div class="header-banner">
+      	    <h1 class="header-titletext">Roskop AdDefender</h1>
+      	    <div class="header-image"></div>
+      	</div>
+      	
+      	<div class="content">
+      	<h2 class="content-header1" style="margin-top: 150px;">Welcome to AdDefender</h2>
+      	<p class="content-text1">
+      		<ul>
+      			<li>Inform and/or block ad blockers</li>
+      			<li>Get your revenue back</li>
+      			<li>Easy to use with every website</li>
+      			<li>Free and open source</li>
+      			<li>Secure</li>
+      		</ul>
+      	</p>
+      	
+      	<h2 class="content-header1">The Problem</h2>
+      	<p class="content-text1">
+      		Depending on your target visitor group, up to 50% use an ad blocker. 
+This means, ads - the most common and effective way to earn money - are no longer displayed.
+You'll lose your revenue.
+      	</p>
+      	
+      	<h2 class="content-header1">The Solution</h2>
+      	<p class="content-text1">
+AdDefender has several techniques to deal with ad blockers. You can prevent the user from viewing your site and force him to deactivate the blocker. Or you can show him banners and notifications to make him aware of this problem.
+				<ul>
+					<li>AdDefend is secure and cannot be bypassed. Even deactivated Javascript or modified blocking lists cannot stop AdDefender.</li>
+					<li>You can integrate it into your homepage within just a few minutes.</li> 
+					<li>It is completely free to use - even for commercial projects.</li>
+					<li>It's behavior and design is completely customizable.</li> 
+      		</ul>
+      	</p>
+      	
+      	<h2 class="content-header1">How to integrate</h2>
+      	<p class="content-text1">
+Please see the README.md-files in "/src" to see how to use API for your language.
+Currently there is just a PHP-API, but AdDefender can be ported very fast to other languages.
+      	</p>
+      	
+      	<h2 class="content-header1">License</h2>
+      	<p class="content-text1">
+You can use AdDefender for any purpose (even for commercial) without any fees etc.
+However, a small annotation or reference to this project would be very nice.
+Please read also the "License.md"-file.
+      	</p>
+      	
+      	<a class="download-more" href="https://github.com/TRoskop/AdDefender">&rarr;&nbsp; View AdDefender on Github</button>
+      	
+      	</div>
+
+      </div>
+	</body>
+</html>

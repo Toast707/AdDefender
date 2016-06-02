@@ -16,6 +16,7 @@ define("ADDefenderBannerBackgroundColor", "#C83759"); /* */
 define("ADDefenderBannerTextColor", "#FFFFFF"); /* */
 define("ADDefenderRandomNamePrefix", "ww"); /* Change this to prevent users from using reg-ex'es to find the class-names, make sure non of your normal css-ids and classnames start with this string!! */
 define("ADDefenderValidationAPIName", "_AdDefenderValid()"); /* Only change this name if you also change "ad.php" and/or "acfp.js" */
+define("ADDefenderValidationAPIToken", "ADDdemo"); /* Musst be the same as Token in acfp.js! */
 
 /**********
 	PUBLIC
@@ -57,14 +58,14 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
     animation-timing-function: ease-in-out;
     animation-delay: " . ADDefenderBannerAnimationDelayTime . "s;
     animation-direction: alternate;
-		animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
     -webkit-animation-name: " . $GLOBALS["AADefenderTokenStyle"] . "anim;
     -webkit-animation-duration: 0.3s;
     -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-delay: " . ADDefenderBannerAnimationDelayTime . "s;
     -webkit-animation-direction: alternate;
-		-webkit-animation-fill-mode: forwards;
-		-moz-animation-name: " . $GLOBALS["AADefenderTokenStyle"] . "anim;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-name: " . $GLOBALS["AADefenderTokenStyle"] . "anim;
     -moz-animation-duration: 0.3s;
     -moz-animation-timing-function: ease-in-out;
     -moz-animation-delay: " . ADDefenderBannerAnimationDelayTime . "s;
@@ -122,8 +123,8 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
   	color: " . ADDefenderBannerTextColor . ";
   	font-family: \"Liberation Sans\", \"Segoe UI\", \"Helvetica\", Arial, sans-serif;
   	margin-left: 25%;
- 	  margin-right: 25%;
- 	  max-width: 650px;
+ 	margin-right: 25%;
+ 	max-width: 650px;
   	margin-top: 100px;
   	margin-bottom: 150px;
 	}");
@@ -167,29 +168,22 @@ function __ADDUtilProtectScript($jscript) {
 	Encrypt and/or obfuscates the given css-code
 */
 function __ADDUtilProtectStyle($style) {
-    return $style; // Currently, is does nothing with the style...
+    // Replace unneeded white spaces...
+    // TODO: Some whitespaces are not correct removed!
+    return str_replace("\n", '', 
+       	   str_replace(": ", ':', 
+           str_replace(";\n", ';', 
+           str_replace("{ ", '{',
+       $style))));
 }
 
-/**********
-	PRIVATE
-*/
-function _AdDefenderCreateScript($adfilesrc) {
-	echo "<script type=\"text/javascript\" src=\"" . $adfilesrc . "\"></script>";
-	echo "<script type=\"text/javascript\">";
-        echo __ADDUtilProtectScript("
-(function(){ try {
-if(" . ADDefenderValidationAPIName ." ) { var d = document.getElementById(\"" . $GLOBALS["AADefenderTokenID"] . "\");
-if(d != null && d.parentElement != null) d.parentElement.removeChild(d);
-}} catch(ex) {}})();");
-  	echo "</script>";
-}
 
 /**********
 	PUBLIC API		
  */
 function _AdDefenderCreateFullScreenViewCloseLink($closemessage) {
 	echo "<a href=\"#\" onclick=\"";
-	// echo __ADDUtilProtectScript("document.getElementById('" . $GLOBALS["AADefenderTokenID"] . "').classList.add('" . $GLOBALS["AADefenderTokenStyle"] . "-rev');");
+	echo __ADDUtilProtectScript("document.getElementById('" . $GLOBALS["AADefenderTokenID"] . "').classList.add('" . $GLOBALS["AADefenderTokenStyle"] . "-rev');");
 	echo "\">" . $closemessage .  "</a>";
 }
 
@@ -208,9 +202,16 @@ function __AdDefenderStart($bannertype, $includereversestyle /* If you want to u
 /**********
 	PUBLIC API		
  */
-function __AdDefenderEnd($adfilename) {
+function __AdDefenderEnd($adfilesrc) {
 	echo "</div>";
-	_AdDefenderCreateScript($adfilename);
+	echo "<script type=\"text/javascript\" src=\"" . $adfilesrc . "\"></script>";
+	echo "<script type=\"text/javascript\">";
+        echo __ADDUtilProtectScript("
+(function(){ try {
+if(" . ADDefenderValidationAPIName ." == \"" . ADDefenderValidationAPIToken . "\" ) { var d = document.getElementById(\"" . $GLOBALS["AADefenderTokenID"] . "\");
+if(d != null && d.parentElement != null) d.parentElement.removeChild(d);
+}} catch(ex) {}})();");
+  	echo "</script>";
 	/* Watermark: only remove when you've asked Thomas Roskop for permission!  */
 	echo "<!-- using Roskop AdDefender / https://github.com/TRoskop/AdDefender  -->";
 }

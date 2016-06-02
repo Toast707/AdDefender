@@ -24,5 +24,5 @@ function _AdDefenderValid() {
         // if (typeof ga != 'function') return false; 
 
 
-	return true;
+	return "ADDdemo"; // Token, only modify if you also modify the value of "ADDefenderValidationAPIToken" in "adcore"!!!
 }

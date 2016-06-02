@@ -35,13 +35,13 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
 	echo "<style type=\"text/css\">";
 
 	if($bannertype == _AdDefenderInfoType::SmallBanner) {
-		echo "." . $GLOBALS["AADefenderTokenStyle"] . " {
+		echo __ADDUtilProtectStyle("." . $GLOBALS["AADefenderTokenStyle"] . " {
     		z-index: 3333; margin: 15px; visibility: hidden;
     		background-color: " . ADDefenderBannerBackgroundColor . ";
-    		overflow-y: auto;";
+    		overflow-y: auto;");
   	} else { // ::FullView
 			/* use fixed position to cover the complete page. */
-		echo "." . $GLOBALS["AADefenderTokenStyle"] . " {
+		echo __ADDUtilProtectStyle("." . $GLOBALS["AADefenderTokenStyle"] . " {
     	background-color: " . ADDefenderBannerBackgroundColor . ";
   		z-index: 3333;
   		position: fixed;
@@ -49,10 +49,10 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
   		left: 0px;
   		height: 100%;
   		width: 100%;
-  		overflow-y: auto;";
+  		overflow-y: auto;");
   	}
 
-	echo "animation-name: " . $GLOBALS["AADefenderTokenStyle"] . "anim;
+	echo __ADDUtilProtectStyle("animation-name: " . $GLOBALS["AADefenderTokenStyle"] . "anim;
     animation-duration: 0.3s;
     animation-timing-function: ease-in-out;
     animation-delay: " . ADDefenderBannerAnimationDelayTime . "s;
@@ -71,9 +71,9 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
     -moz-animation-direction: alternate;
 		-moz-animation-fill-mode: forwards;
 		opacity: 0;
-	}";
+	}");
 
-	echo "@keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "anim {
+	echo __ADDUtilProtectStyle("@keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "anim {
     from { opacity: 0; }
     to { opacity: 1;  visibility: visible; }
 	} @-webkit-keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "anim {
@@ -82,10 +82,10 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
 	} @-moz-keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "anim {
     from { opacity: 0; }
     to { opacity: 1; visibility: visible; }
-	}";
+	}");
 
 	if($bannertype == _AdDefenderInfoType::FullView && $includereversestyle) {
-		 echo "@keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "animr2 {
+		 echo __ADDUtilProtectStyle("@keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "animr2 {
     		from { opacity: 1; }
     		to { opacity: 0; display: none !important; visibility: hidden; }
 			} @-webkit-keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "animr2 {
@@ -94,9 +94,9 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
 			} @-moz-keyframes " . $GLOBALS["AADefenderTokenStyle"] .  "animr2 {
     		from { opacity: 1; }
     		to { opacity: 0; display: none !important; visibility: hidden; }
-			}";
+			}");
 
-			echo "." . $GLOBALS["AADefenderTokenStyle"] . "-rev {
+			echo __ADDUtilProtectStyle("." . $GLOBALS["AADefenderTokenStyle"] . "-rev {
         animation-name: " . $GLOBALS["AADefenderTokenStyle"] . "animr2;
 			  animation-duration: 0s;
     		animation-timing-function: ease-in-out;
@@ -115,10 +115,10 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
     		-moz-animation-delay: 0.5s;
 				-moz-animation-fill-mode: forwards;
 				-moz-animation-direction: normal;
-			}";
+			}");
   }
 
-	echo "." . $GLOBALS["AADefenderTokenStyle"] . " > p {
+	echo __ADDUtilProtectStyle("." . $GLOBALS["AADefenderTokenStyle"] . " > p {
   	color: " . ADDefenderBannerTextColor . ";
   	font-family: \"Liberation Sans\", \"Segoe UI\", \"Helvetica\", Arial, sans-serif;
   	margin-left: 25%;
@@ -126,13 +126,13 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
  	  max-width: 650px;
   	margin-top: 100px;
   	margin-bottom: 150px;
-	}";
-	echo "." . $GLOBALS["AADefenderTokenStyle"] . " > p > a {
+	}");
+	echo __ADDUtilProtectStyle("." . $GLOBALS["AADefenderTokenStyle"] . " > p > a {
   	color: #FFFFFF;
-	}";
-	echo "." . $GLOBALS["AADefenderTokenStyle"] . " > p > a:hover {
+	}");
+	echo __ADDUtilProtectStyle("." . $GLOBALS["AADefenderTokenStyle"] . " > p > a:hover {
   	cursor: pointer;
-	}";
+	}");
 
 	echo "</style>";
 }
@@ -143,7 +143,7 @@ function _AdDefenderIncludeStyle($bannertype, $includereversestyle) {
 	Creates a random and unique string wich maches the css-naming-rules for classnames and ids
 */
 function __ADDUtilCreateRandomName() {
-    $length = 10;
+    $length = rand(8, 20); // Random length, to prevent regex with string length
     $characters = '-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -156,19 +156,32 @@ function __ADDUtilCreateRandomName() {
 
 /**********
 	PRIVATE
+	Encrypt and/or obfuscates the given javascript
+*/
+function __ADDUtilProtectScript($jscript) {
+    return $jscript; // Currently, is does nothing with the script...
+}
+
+/**********
+	PRIVATE
+	Encrypt and/or obfuscates the given css-code
+*/
+function __ADDUtilProtectStyle($style) {
+    return $style; // Currently, is does nothing with the style...
+}
+
+/**********
+	PRIVATE
 */
 function _AdDefenderCreateScript($adfilesrc) {
 	echo "<script type=\"text/javascript\" src=\"" . $adfilesrc . "\"></script>";
-	echo "<script type=\"text/javascript\">
-    (function(){
-				try {
-				  if(" . ADDefenderValidationAPIName ." ) {
-          	var d = document.getElementById(\"" . $GLOBALS["AADefenderTokenID"] . "\");
-          	if(d != null && d.parentElement != null) d.parentElement.removeChild(d);
-        	}
-				} catch(ex) {}
-      })();
-  </script>";
+	echo "<script type=\"text/javascript\">";
+        echo __ADDUtilProtectScript("
+(function(){ try {
+if(" . ADDefenderValidationAPIName ." ) { var d = document.getElementById(\"" . $GLOBALS["AADefenderTokenID"] . "\");
+if(d != null && d.parentElement != null) d.parentElement.removeChild(d);
+}} catch(ex) {}})();");
+  	echo "</script>";
 }
 
 /**********
@@ -176,17 +189,14 @@ function _AdDefenderCreateScript($adfilesrc) {
  */
 function _AdDefenderCreateFullScreenViewCloseLink($closemessage) {
 	echo "<a href=\"#\" onclick=\"";
-	echo "document.getElementById('" .
-	 $GLOBALS["AADefenderTokenID"] . "').classList.add('" .
-	 $GLOBALS["AADefenderTokenStyle"] . "-rev');"
-	;
+	// echo __ADDUtilProtectScript("document.getElementById('" . $GLOBALS["AADefenderTokenID"] . "').classList.add('" . $GLOBALS["AADefenderTokenStyle"] . "-rev');");
 	echo "\">" . $closemessage .  "</a>";
 }
 
 /**********
 	PUBLIC API		
  */
-function __AdDefenderStart($bannertype, $includereversestyle /* If you want to use _AdDefenderCreateFullScreenViewCloseLink, this must be "true" */) {
+function __AdDefenderStart($bannertype, $includereversestyle /* If you want to use _AdDefenderCreateFullScreenViewCloseLink() later, this must be "true" */) {
 	
         $GLOBALS["AADefenderTokenID"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
         $GLOBALS["AADefenderTokenStyle"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
@@ -201,7 +211,7 @@ function __AdDefenderStart($bannertype, $includereversestyle /* If you want to u
 function __AdDefenderEnd($adfilename) {
 	echo "</div>";
 	_AdDefenderCreateScript($adfilename);
-	/* Watermark, only remove when you've asked Thomas Roskop for permission!  */
+	/* Watermark: only remove when you've asked Thomas Roskop for permission!  */
 	echo "<!-- using Roskop AdDefender / https://github.com/TRoskop/AdDefender  -->";
 }
 

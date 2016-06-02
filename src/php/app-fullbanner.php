@@ -34,7 +34,9 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
       You are using an Ad Blocker. Please deactivate it!
       <br />
 			<?php
-				_AdDefenderCreateFullScreenViewCloseLink("OK"); // Only if you want the user to be able to close the banner.
+				_AdDefenderCreateFullScreenViewCloseLink("OK"); 
+				// Only if you want the user to be able to close the banner.
+				// If not active, the user is blocked out of your site - he cannot access it anymore as long as his AdBlocker is active.
 			?>
     </p>
   	<?php

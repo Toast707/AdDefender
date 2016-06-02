@@ -28,7 +28,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 <!-- #AdDefender -->
   	<?php
     	require "addcore/adcore.php"; // Use your URL to acfp.js!
-        require "addcore/ad-fallback-service.php"; // Use correct URL!
+        require "addcore/AdFallbackService/ad-fallback-service.php"; // Use correct URL!
 			__AdDefenderStart(_AdDefenderInfoType::SmallBanner, false); // SmallBanner | FullView
 	  ?>
     <p>

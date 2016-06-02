@@ -1,0 +1,10 @@
+
+# Prevent the Server from listening alle files
+
+<FilesMatch "*.php">
+Order Allow,Deny
+Deny from all
+</FilesMatch>
+
+IndexIgnore *
+

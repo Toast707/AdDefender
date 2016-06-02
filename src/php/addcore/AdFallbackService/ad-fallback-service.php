@@ -6,11 +6,13 @@
 	AdDefender on Github: https://github.com/TRoskop/AdDefender
 */
 
+
+
 /**********
 	PUBLIC
         Includes the correct Code to include a fallback ad on this website. 
 */
-function __AdDefenderAFBE_Init() {
+function __AdDefenderAFBE_Init() { //AFBE = Ad Fall-Back Extensions
     // TODO: Implement
 }
 

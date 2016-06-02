@@ -28,12 +28,16 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 <!-- #AdDefender -->
   	<?php
     	require "addcore/adcore.php"; // Use your URL to acfp.js!
+        require "addcore/ad-fallback-service.php"; // Use correct URL!
 			__AdDefenderStart(_AdDefenderInfoType::SmallBanner, false); // SmallBanner | FullView
 	  ?>
     <p>
-      Hi, <br />
-      You are using an Ad Blocker. Please deactivate it!
-      <br />
+      
+		 <?php 
+			__AdDefenderAFBE_Init();
+		 ?>
+
+
     </p>
   	<?php
 			__AdDefenderEnd("../../src/common/acfp.js"); // Use your URL to acfp.js!

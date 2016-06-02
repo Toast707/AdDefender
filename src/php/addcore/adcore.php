@@ -27,32 +27,6 @@ abstract class _AdDefenderInfoType
 }
 
 
-
-/**********
-	PRIVATE
-*/
-function _AdDefenderInitCore() {
-  $GLOBALS["AADefenderTokenID"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
-  $GLOBALS["AADefenderTokenStyle"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
-}
-
-
-/**********
-	PRIVATE
-*/
-function _AdDefenderWriteBannerStartTag() {
-	echo "<div class=\"" . $GLOBALS["AADefenderTokenStyle"] . "\" id=\"" . $GLOBALS["AADefenderTokenID"] . "\" >";
-}
-
-
-/**********
-	PRIVATE
-*/
-function _AdDefenderWriteBannerEndTag() {
-	echo "</div>";
-}
-
-
 /**********
 	PRIVATE
 */
@@ -212,17 +186,20 @@ function _AdDefenderCreateFullScreenViewCloseLink($closemessage) {
 /**********
 	PUBLIC API		
  */
-function __AdDefenderStart($bannertype, $includereversestyle) {
-	_AdDefenderInitCore();
+function __AdDefenderStart($bannertype, $includereversestyle /* If you want to use _AdDefenderCreateFullScreenViewCloseLink, this must be "true" */) {
+	
+        $GLOBALS["AADefenderTokenID"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
+        $GLOBALS["AADefenderTokenStyle"] = ADDefenderRandomNamePrefix . __ADDUtilCreateRandomName();
+
 	_AdDefenderIncludeStyle($bannertype, $includereversestyle);
-	_AdDefenderWriteBannerStartTag();
+	echo "<div class=\"" . $GLOBALS["AADefenderTokenStyle"] . "\" id=\"" . $GLOBALS["AADefenderTokenID"] . "\" >";
 }
 
 /**********
 	PUBLIC API		
  */
 function __AdDefenderEnd($adfilename) {
-	_AdDefenderWriteBannerEndTag();
+	echo "</div>";
 	_AdDefenderCreateScript($adfilename);
 	/* Watermark, only remove when you've asked Thomas Roskop for permission!  */
 	echo "<!-- using Roskop AdDefender / https://github.com/TRoskop/AdDefender  -->";

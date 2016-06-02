@@ -26,7 +26,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 
 <!-- #AdDefender -->
   	<?php
-    	require "addcore/adcore.php";
+    	require "addcore/adcore.php"; // Use your URL to adcore.php!
 			__AdDefenderStart(_AdDefenderInfoType::FullView, true); // SmallBanner | FullView
 	  ?>
     <p>
@@ -38,7 +38,7 @@ Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod 
 			?>
     </p>
   	<?php
-			__AdDefenderEnd("addcore/acfp.js");
+			__AdDefenderEnd("../../src/common/acfp.js"); // Use your URL to acfp.js!
 	  ?>
 <!-- /AdDefender -->
 
